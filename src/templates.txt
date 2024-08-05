@@ -1,0 +1,27 @@
+Mesh generateTriangle() {
+  std::vector<glm::vec3> vcx;
+  vcx.push_back(glm::vec3(-0.5f, -0.5f, 0.0f));
+  vcx.push_back(glm::vec3(0.5f, -0.5f, 0.0f));
+  vcx.push_back(glm::vec3(0.0f, 0.5f, 0.0f));
+  std::vector<glm::vec4> colors;
+  colors.push_back(glm::vec4(distribution(generator), distribution(generator), distribution(generator), 1.0f));
+  colors.push_back(glm::vec4(distribution(generator), distribution(generator), distribution(generator), 1.0f));
+  colors.push_back(glm::vec4(distribution(generator), distribution(generator), distribution(generator), 1.0f));
+  return Mesh(GL_TRIANGLES, shaderLoader.getProgram(), vcx, colors);
+}
+Mesh generateSimpleLine() {
+  std::vector<glm::vec3> vcx;
+  vcx.push_back(glm::vec3(-0.5f, -0.5f, 0.0f));
+  vcx.push_back(glm::vec3(0.5f, 0.5f, 0.0f));
+  std::vector<glm::vec4> colors;
+  colors.push_back(glm::vec4(distribution(generator), distribution(generator), distribution(generator), 1.0f));
+  colors.push_back(glm::vec4(distribution(generator), distribution(generator), distribution(generator), 1.0f));
+  return Mesh(GL_LINES, shaderLoader.getProgram(), vcx, colors);
+}
+Mesh generateSimplePoint() {
+  std::vector<glm::vec3> vcx;
+  vcx.push_back(glm::vec3(0.0f, 0.0f, 0.0f));
+  std::vector<glm::vec4> colors;
+  colors.push_back(glm::vec4(distribution(generator), distribution(generator), distribution(generator), 1.0f));
+  return Mesh(GL_POINTS, shaderLoader.getProgram(), vcx, colors);
+}
