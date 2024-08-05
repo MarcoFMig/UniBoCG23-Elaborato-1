@@ -52,7 +52,7 @@ std::random_device randomDev;
 std::mt19937 generator(randomDev());
 std::uniform_real_distribution<float> distribution(0.0f, 1.0f);
 //std::list<std::unique_ptr<Behaviour>> behaviourList;
-const char* programTitle = "Computer Graphics Experiments";
+const char* programTitle = "UniBoCG23-Elaborato-1";
 ShaderLoader shaderLoader;
 ShaderLoader textShaderLoader;
 std::shared_ptr<Shader> mainShader;

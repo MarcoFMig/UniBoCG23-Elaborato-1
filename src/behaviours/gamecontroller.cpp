@@ -290,7 +290,7 @@ void GameController::makeMiscData() {
     colors.push_back(glm::vec4(0.0f, 1.0f, 0.0f, 1.0f));
   }
   this->projectilePrototype.colors = std::move(colors);
-  this->gameOverText = std::make_shared<Label>("Get owned!", glm::vec3(1.0f, 0.0f, 0.0f));
+  this->gameOverText = std::make_shared<Label>("Game Over!", glm::vec3(1.0f, 0.0f, 0.0f));
   this->gameOverText->setPosition(glm::vec3(DEFAULT_WINDOW_WIDTH / 2.0f,
     DEFAULT_WINDOW_HEIGHT / 2.0f, 1.0f));
 }
