@@ -18,14 +18,19 @@
 
 
 ## How to build the project
-### Requirements
-**Windows**:
-1. [Mingw (32/64)](https://sourceforge.net/projects/mingw/)
-2. [CMake](https://cmake.org/download/) version > 3.5
+### Windows - using Visual Studio Code
+#### If MinGW is not installed with required modules
+1. Install from here [Mingw (32/64)](https://sourceforge.net/projects/mingw/)
+2. Once installed launch MSYS2 Mingw64
+3. Run this command `pacman -S mingw-w64-x86_64-toolchain base-devel gcc make mingw-w64-i686-gcc mingw-w64-x86_64-gcc cmake`
+4. Install CMake Extension in Visual Studio Code
+#### Once MinGW and Visual Studio Code are ready
+1. Open project folder
+2. Perform a scan of the available kits in the system
+3. Select `GCC ... x86_64-w64-mingw32 (mingw64)` as a compiler
+4. CTRL + SHIFT + P, configure project TWO times
+5. Finally run the project selecting `UniboCG23-Elaborato-1` as target if Visual Studio Code asks
 
-**Linux**:
-TBA
+## Screenshots
 
-### Build
-
-Use CMake's build task to build the project, if all of the requirements are satisfied you will see an executable with it's required dll's inside the `bin/` folder.
+![ingame screenshot](https://github.com/MarcoFMig/UniBoCG23-Elaborato-1/blob/main/docs/images/ingame.png?raw=true "Ingame Screenshot")
