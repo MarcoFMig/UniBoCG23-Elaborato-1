@@ -1,26 +1,15 @@
 cmake_minimum_required(VERSION 3.5.0)
-project(CGExperiments VERSION 0.0.4 LANGUAGES C CXX)
+project(UniboCG23-Elaborato-1 VERSION 0.0.5 LANGUAGES C CXX)
 
 set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 set(BUILD_SHARED_LIBS OFF)
 set(CMAKE_EXE_LINKER_FLAGS "-static")
+set(ASSET_DIR "${CMAKE_SOURCE_DIR}/assets")
 
 add_link_options(-static-libgcc -static-libstdc++ -static -lpthread)
 set(ASSIMP_WARNINGS_AS_ERRORS OFF)
 set(FT_DISABLE_BROTLI ON)
 set(FT_DISABLE_HARFBUZZ ON)
-#find_package(PkgConfig REQUIRED)
-#pkg_check_modules(HARFBUZZ REQUIRED IMPORTED_TARGET GLOBAL harfbuzz)
-#pkg_check_modules(BROTLIDEC REQUIRED IMPORTED_TARGET GLOBAL libbrotlidec)
-#pkg_check_modules(BROTLICOMMON REQUIRED IMPORTED_TARGET GLOBAL libbrotlicommon)
-
-#message(STATUS "C++ compiler: ${CMAKE_CXX_COMPILER}")
-#get_filename_component(MinGW64_DIR "${CMAKE_CXX_COMPILER}" DIRECTORY)
-#get_filename_component(MinGW64_DIR "${MinGW64_DIR}/../.." ABSOLUTE)
-#message(STATUS "MinGW64 directory: ${MinGW64_DIR}")
-
-#set(MANUALLY_ADDED_LIBRARIES ${MinGW64_DIR}/mingw64/lib/libharfbuzz.a
-#  ${MinGW64_DIR}/mingw64/lib/libbrotlidec.a)
 
 message(STATUS "Manually added dependencies: ${MANUALLY_ADDED_LIBRARIES}")
 
@@ -42,7 +31,6 @@ file(GLOB AUTOMATIC_SOURCES "${PROJECT_SOURCE_DIR}/src/shaderloader/*.cpp"
 set(MANUAL_SOURCES ${PROJECT_SOURCE_DIR}"/src/main.cpp"
                     ${PROJECT_SOURCE_DIR}"/src/scene.cpp"
                     ${PROJECT_SOURCE_DIR}"/src/engine.cpp"
-#                    ${PROJECT_SOURCE_DIR}"/src/behaviour.cpp"
                     ${PROJECT_SOURCE_DIR}"/src/physicsmanager.cpp"
                     ${PROJECT_SOURCE_DIR}"/src/context.cpp"
                     ${PROJECT_SOURCE_DIR}"/src/object.cpp")
@@ -60,29 +48,32 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/lib/freetype" EXCLUDE_FROM_ALL)
 add_subdirectory("${PROJECT_SOURCE_DIR}/lib/freeglut" EXCLUDE_FROM_ALL)
 add_subdirectory("${PROJECT_SOURCE_DIR}/lib/assimp" EXCLUDE_FROM_ALL)
 
-add_executable(CGExperiments ${MANUAL_SOURCES} ${AUTOMATIC_SOURCES})
+add_executable(UniboCG23-Elaborato-1 ${MANUAL_SOURCES} ${AUTOMATIC_SOURCES})
 
-set_target_properties(CGExperiments PROPERTIES
-    ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/"
-    LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/"
-    RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/")
+set_target_properties(UniboCG23-Elaborato-1 PROPERTIES
+  ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/"
+  LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/"
+  RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/")
 
-target_link_libraries(CGExperiments PUBLIC glm)
-target_link_libraries(CGExperiments PUBLIC glew)
-target_link_libraries(CGExperiments PUBLIC freetype)
-target_link_libraries(CGExperiments PUBLIC freeglut)
-target_link_libraries(CGExperiments PUBLIC assimp)
-#target_link_libraries(CGExperiments PUBLIC PkgConfig::HARFBUZZ)
-#target_link_libraries(CGExperiments PUBLIC PkgConfig::BROTLIDEC)
-#target_link_libraries(CGExperiments PUBLIC PkgConfig::BROTLICOMMON)
-#target_link_libraries(CGExperiments PUBLIC ${MANUALLY_ADDED_LIBRARIES})
+target_link_libraries(UniboCG23-Elaborato-1 PUBLIC glm)
+target_link_libraries(UniboCG23-Elaborato-1 PUBLIC glew)
+target_link_libraries(UniboCG23-Elaborato-1 PUBLIC freetype)
+target_link_libraries(UniboCG23-Elaborato-1 PUBLIC freeglut)
+target_link_libraries(UniboCG23-Elaborato-1 PUBLIC assimp)
 
-target_include_directories(CGExperiments PUBLIC ${MANUAL_INCLUDE_DIRS})
+target_include_directories(UniboCG23-Elaborato-1 PUBLIC ${MANUAL_INCLUDE_DIRS})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
 
-add_custom_command(TARGET CGExperiments POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:CGExperiments> $<TARGET_FILE_DIR:CGExperiments>
+add_custom_command(TARGET UniboCG23-Elaborato-1 POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:UniboCG23-Elaborato-1> $<TARGET_FILE_DIR:UniboCG23-Elaborato-1>
   COMMAND_EXPAND_LISTS)
+
+add_custom_command(
+  TARGET UniboCG23-Elaborato-1 POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_directory
+  ${ASSET_DIR} "${PROJECT_SOURCE_DIR}/bin"
+  COMMENT "Copying assets"
+)

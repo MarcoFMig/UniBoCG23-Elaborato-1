@@ -545,6 +545,9 @@ int main(int argv, char* argc[]) {
   if (checkData(std::vector({VERTEX_SHADER_NAME, FRAGMENT_SHADER_NAME}), std::vector({BASIC_VERTEX_SHADER_CODE, BASIC_FRAGMENT_SHADER_CODE}))) {
     return 1;
   }
+  if (checkData(std::vector({VERTEX_TEXT_SHADER_NAME, FRAGMENT_TEXT_SHADER_NAME}), std::vector({BASIC_VERTEX_TEXT_SHADER_CODES, BASIC_FRAGMENT_TEXT_SHADER_CODE}))) {
+    return 1;
+  }
   int drawmode = GL_TRIANGLES;
   std::vector<glm::vec3> vertexes;
   std::vector<glm::vec4> vertexColors;
