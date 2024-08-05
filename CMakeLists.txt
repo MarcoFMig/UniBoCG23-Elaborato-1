@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(UniboCG23-Elaborato-1 VERSION 0.0.5 LANGUAGES C CXX)
+set (CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
 set(BUILD_SHARED_LIBS OFF)
