@@ -1,7 +1,6 @@
 # Unibo Computer Graphics - Elaborato 1
 
 ## Obiettivi del Progetto\:
-
 * Imparare ad inizializzare una finestra di gioco utilizzando FreeGLUT
 * Utilizzare funzioni di disegno di base per creare forme geometriche per rappresentare il giocatore, i nemici e i proiettili
 * Implementare la gestione del giocatore e dei nemici
@@ -11,11 +10,18 @@
 * Utilizzare curve interpolanti di Hermite per definire la forma dei nemici e del giocatore
 * Memorizzare le geometrie del giocatore, dei nemici e dei proiettili su Vertex Buffer Objects (VBOs) per una gestione efficiente dei dati grafici
 * Aggiungere funzionalità come punti
-
 ### Funzionalità extra
 * Aggiungere punti
 * Aggiungi una schermata di game over quando il giocatore perde tutte le vite
 
+## Run project
+You can download the compiled binaries for Windows 64 bit [here](https://github.com/MarcoFMig/UniBoCG23-Elaborato-1/releases/tag/v1.0.0)
+
+## Controls
+- A:        Move left
+- D:        Move right
+- SPACE:    Shoot
+- ESC:      Quit game
 
 ## How to build the project
 ### Windows - using Visual Studio Code
@@ -35,5 +41,4 @@ Unfortunately, as for now Visual Studio's compiler does not support
 some of the features of C++23 used in this project and is unable to build the project.
 
 ## Screenshots
-
 ![ingame screenshot](https://github.com/MarcoFMig/UniBoCG23-Elaborato-1/blob/main/docs/images/ingame.png?raw=true "Ingame Screenshot")
