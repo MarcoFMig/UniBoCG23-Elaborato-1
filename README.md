@@ -30,6 +30,9 @@
 3. Select `GCC ... x86_64-w64-mingw32 (mingw64)` as a compiler
 4. CTRL + SHIFT + P, configure project TWO times
 5. Finally run the project selecting `UniboCG23-Elaborato-1` as target if Visual Studio Code asks
+### Windows - using Visual Studio
+Unfortunately, as for now Visual Studio's compiler does not support
+some of the features of C++23 used in this project and is unable to build the project.
 
 ## Screenshots
 
