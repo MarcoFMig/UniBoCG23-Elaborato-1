@@ -123,8 +123,8 @@ GameController::GameController(std::shared_ptr<Object> objectReference,
     projectile->setName("projectile");
     this->sceneReference->addObject(projectile);
     std::shared_ptr<RectangularCollider> rectangularCollider =
-      std::make_shared<RectangularCollider>(glm::vec3(1.0f, 1.0f, 0.0f),
-        glm::vec3(-1.0f, -1.0f, 0.0f));
+      std::make_shared<RectangularCollider>(glm::vec3(0.423437f, 0.605556f, 1.0f),
+        glm::vec3(-0.385938f, -0.236111f, 1.0f));
     rectangularCollider->registerCollisionListener(this->projectileHitFunction);
     this->sceneReference->attachBehaviour(
       projectile, std::make_shared<Projectile>(projectile, this->sceneReference, 1000.0f));
