@@ -4,6 +4,9 @@
 
 #include "scene.hpp"
 
+/**
+ * @deprecated
+ */
 class Context {
   public:
     struct Window {

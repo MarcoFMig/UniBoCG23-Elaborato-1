@@ -46,14 +46,14 @@ std::string Logger::getFormattedTime() {
   return this->getFormattedTime(false);
 }
 std::string Logger::getFormattedTime(bool formatForFile) {
-    auto now = std::time(nullptr);           // Acquisisce il tempo corrente come time_t
-    auto localTime = std::localtime(&now);   // Converte time_t in tm come ora locale
+    auto now = std::time(nullptr);
+    auto localTime = std::localtime(&now);
 
     char buffer[100];
     if (formatForFile) {
-      std::strftime(buffer, sizeof(buffer), "%d-%m-%Y", localTime); // Formatta l'ora
+      std::strftime(buffer, sizeof(buffer), "%d-%m-%Y", localTime);
     } else {
-      std::strftime(buffer, sizeof(buffer), "%H:%M:%S", localTime); // Formatta l'ora
+      std::strftime(buffer, sizeof(buffer), "%H:%M:%S", localTime);
     }
     return std::string(buffer);
 }

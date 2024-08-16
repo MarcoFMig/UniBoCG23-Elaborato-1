@@ -7,6 +7,9 @@
 #include "font.hpp"
 #include "../lightweightutils/idprovider.hpp"
 
+/**
+ * @deprecated
+ */
 class UI {
   public:
     enum UIAction {

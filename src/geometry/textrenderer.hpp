@@ -11,6 +11,9 @@
 #include "../lightweightutils/idprovider.hpp"
 #include "../lightweightutils/identifiable.hpp"
 
+/**
+ * A class that represents a text renderer.
+ */
 class TextRenderer {
   private:
     struct Character {
@@ -27,6 +30,17 @@ class TextRenderer {
     FT_Library freeTypeLib;
     FT_Face fontFace;
   public:
+    /**
+     * Construct a textrenderer.
+     * @param guiShaderId     the shader's identifier to be used during the rendering of text
+     * @param fontName        the font to be used to render the text
+     * @param fontPath        a string containing the path of the font file in the filesystem
+     */
     TextRenderer(unsigned int guiShaderId, std::string fontName, std::string fontPath);
+    /**
+     * Renders the text inside a given list.
+     * @param textToRender    a list of labels to be rendered
+     * @param world           world matrix to be used during the rendering
+     */
     void renderText(std::list<std::shared_ptr<Label>> textToRender, glm::mat4& world);
 };

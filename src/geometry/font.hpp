@@ -7,6 +7,9 @@
 
 #include "../lightweightutils/identifiable.hpp"
 
+/**
+ * A class representing a font.
+ */
 class Font : public Identifiable<unsigned int> {
   private:
     struct Character {
@@ -19,5 +22,9 @@ class Font : public Identifiable<unsigned int> {
     std::string fontPath;
     //std::unordered_map<GLchar, Character> characterMap;
   public:
+    /**
+     * Constructs a font given a fontpath.
+     * @param fontPath    path of the font inside the filesystem
+     */
     Font(std::string fontPath);
 };

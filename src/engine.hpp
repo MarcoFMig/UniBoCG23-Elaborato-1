@@ -3,6 +3,9 @@
 #include "scene.hpp"
 #include "context.hpp"
 
+/**
+ * @deprecated
+ */
 class Engine {
   private:
     //Context context;

@@ -33,6 +33,10 @@ class PhysicsManager : public Subsystem {
       std::shared_ptr<RectangularCollider>>>& colliderB);
   public:
     PhysicsManager() = delete;
+    /**
+     * Constructs a PhysicsManager instance.
+     * @param objectMapRef    reference to the object map of the scene
+     */
     PhysicsManager(std::shared_ptr<std::unordered_map<unsigned int, std::pair<std::shared_ptr<Object>,
       std::unordered_map<unsigned int, std::shared_ptr<IBehaviour>>>>> objectMapRef);
     virtual void behaviourUpdate(Subsystem::UpdateType reason,
