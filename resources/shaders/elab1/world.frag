@@ -25,7 +25,7 @@ float noise(vec2 p) {
 void main() {
     vec2 p = gl_FragCoord.xy / resolution;
     if (isBackground) {
-        if (p.y > 0.3) { // Spostato il confine per dare più spazio all'erba
+        if (p.y > 0.3) { // Il cielo prende la maggior parte dello spazio
             float x = p.x + time * 0.1;
             float n = noise(vec2(x * 10.0, p.y * 10.0));
             vec3 skyColor = vec3(0.5, 0.7, 0.9);
